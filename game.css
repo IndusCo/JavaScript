@@ -3,6 +3,17 @@ body{
 }
 
 h1{
-	color: teal;
+	color: snow;
 	text-align: 15px;
 }
+
+table, th, td {
+	border: 3px solid black;
+	border-collapse: collapse;
+ }
+ th, td {
+	padding-top: 10px;
+	padding-bottom: 20px;
+	padding-left: 30px;
+	padding-right: 40px;
+ }
