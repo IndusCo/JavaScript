@@ -1,111 +1,62 @@
 // Ahsan Tariq
 // my Twenty One game (Simplified Black Jack)
 
-function myFunction(){
-    document.getElementById('twentyone').innerHTML = ('Your hand equals' + " " + (sum + sum2));
+function generateRandomNumber(){
+	return Math.floor(Math.random()*11)+1;
 }
+
+// Function to calculate and display the current hand total
+
+let sum = generateRandomNumber();
+let sum2 = 0;
+let sum3 = 0;
+let sum4 = 0;
+let sum5 = 0;
+
+function displayTotal(){
+    return sum + sum2 + sum3 + sum4 + sum5;
+}
+
+// Function to check win or bust
+
+function checkWinOrBust(total){
+if (total == 21){
+    document.getElementById("twentyone").innerHTML = "You Win!";
+} else if (total > 21){
+    document.getElementById("twentyone").innerHTML = "Bust!";
+} else {
+    document.getElementById("twentyone").innerHTML = "Your hand equals " + total;
+}
+}
+
+
+function myFunction(){
+    document.getElementById('twentyone').innerHTML = 'Your hand equals ' + displayTotal();
+}
+
 
 function myFunction2(){
-    document.getElementById('dealer').innerHTML = ('Your hand equals' + " " + (sum + sum2 + sum3));
+    sum2 = generateRandomNumber();
+    document.getElementById('dealer').innerHTML = 'Your hand equals ' + displayTotal();
+    checkWinOrBust(displayTotal());
 }
+
 
 function myFunction3(){
-    document.getElementById('dealer2').innerHTML = ('Your hand equals' + " " + (sum + sum2 + sum3 + sum4));
+    sum3 = generateRandomNumber();
+    document.getElementById('dealer2').innerHTML = 'Your hand equals ' + displayTotal();
+    checkWinOrBust(displayTotal());
 }
 
+ 
 function myFunction4(){
-    document.getElementById('dealer3').innerHTML = ('Your hand equals' + " " + (sum + sum2 + sum3 + sum4 + sum5));
+    sum4 = generateRandomNumber();
+    document.getElementById('dealer3').innerHTML = 'Your hand equals ' + displayTotal();
+    checkWinOrBust(displayTotal());
 }
 
-
-// myFunctions present the total of your cards
-
-function generateRandomNumbers(){
-	return Math.floor(Math.random()*11)+1;
+function myFunction5(){
+    sum5 = generateRandomNumber();
+    document.getElementById('dealer4').innerHTML = 'Your hand equals ' + displayTotal();
+    checkWinOrBust(displayTotal());
 }
-
-function generateRandomNumbers2(){
-	return Math.floor(Math.random()*11)+1;
-}
-
-function generateRandomNumbers3(){
-	return Math.floor(Math.random()*11)+1;
-}
-
-function generateRandomNumbers4(){
-	return Math.floor(Math.random()*11)+1;
-}
-
-function generateRandomNumbers5(){
-	return Math.floor(Math.random()*11)+1;
-}
-
-// generateRandomNumber functions simulate the values of the "cards" dealt
-
-let randomNumberGenerated = generateRandomNumbers();
-let randomNumberGenerated2 = generateRandomNumbers2();
-let randomNumberGenerated3 = generateRandomNumbers3();
-let randomNumberGenerated4 = generateRandomNumbers4();
-let randomNumberGenerated5 = generateRandomNumbers5();
-
-var sum = randomNumberGenerated;
-var sum2 = randomNumberGenerated2;
-var sum3 = randomNumberGenerated3;
-var sum4 = randomNumberGenerated4;
-var sum5 = randomNumberGenerated5;
-
-// the sum variables are each card that is dealt by dealer
-
-console.log("First Two Cards equal" + " " + (sum + sum2));
-
-// this is your starting hand (two cards)
-
-if((sum + sum2) == 21){
-console.log("You Win!");
-}
-else if((sum + sum2) > 21){
-console.log("Bust!");
-}
-else{
-console.log((sum + sum2 + sum3));
-}
-
-// the addition of the third card dealt
-
-console.log("Total Cards equal" + " " + (sum + sum2 + sum3));
-
-if((sum + sum2 + sum3) == 21){
-console.log("You Win!");
-}
-else if((sum + sum2 + sum3) > 21){
-console.log("Bust!");
-}
-else{
-console.log((sum + sum2 + sum3 + sum4));    
-}
-
-// the addition of the fourth card dealt
-
-console.log("Total Cards equal" + " " + (sum + sum2 + sum3 + sum4));
-
-if((sum + sum2 + sum3 + sum4) == 21){
-console.log("You Win!");
-}
-else if((sum + sum2 + sum3 + sum4) > 21){
-console.log("Bust!");
-}
-else{
-console.log(sum + sum2 + sum3 + sum4 + sum5);
-}
-
-// the addition of the fifth card dealt
-
-console.log("Total Cards equal" + " " + (sum + sum2 + sum3 + sum4 + sum5));
-if((sum + sum2 + sum3 + sum4 + sum5) == 21){
-console.log("You Win!");
-}
-else if((sum + sum2 + sum3 + sum4 + sum5) > 21){
-console.log("Bust!");
-}
-
-// evaluation of the fifth card to the hand
